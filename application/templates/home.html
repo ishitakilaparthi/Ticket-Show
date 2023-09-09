@@ -1,0 +1,35 @@
+<body>
+  {% extends "base.html" %} 
+  {% block title %} 
+  Home 
+  {% endblock %}
+  {% block content %}
+  <div class="container-fluid align-self-center" style="max-width: 100%;">
+      <div class="container pt-4 pb-4">
+        <h5 style="color: white;">Movies</h5>
+          <div class="row row-cols-auto">
+          {% for movie in movies %}
+            <div class="col" style="padding-top: 25px;">
+              <div class="card" style="width: 15rem; vertical-align:middle;">
+                  <div class="text-center">
+                      <img src="/static/movie_posters/{{ movie.poster }}" class="card-img-top">
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="/select_venues/{{ movie.id }}" class="link-dark">{{ movie.title }}</a></h5>
+                    <p class="card-text">{{ movie.starring }}</p>
+                    <p class="card-text"><strong>Tags</strong> - {{ movie.tags }}</p>
+                    <p class="card-text"><strong>Rating</strong> - {{ movie.avg_rating}}</p>
+                  </div>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+      </div>
+  </div>
+  
+  {% endblock %}
+  </body>
+
+
+
+

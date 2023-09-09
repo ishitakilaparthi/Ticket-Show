@@ -1,0 +1,48 @@
+<body>
+  {% extends "base.html" %} 
+  {% block title %} 
+  Book your show
+  {% endblock %}
+  {% block content %}
+
+
+
+  <h3 style="color: white;display: flex; justify-content:center; align-items:center; padding-top:5%; font-weight:700">Book your show</h3>
+  <div class="form" style="display: flex; justify-content: center;align-items: center;padding-top:10px">
+  <form method = "POST" enctype="multipart/form-data">
+
+      <div class="mb-3">
+        <label for="title" class="form-label" style="color: white;">Movie</label>
+        <input class="form-control" type="text" placeholder="{{ show.movie }}" aria-label="{{ show.movie }}" disabled>
+      </div>
+
+      <div class="mb-3">
+        <label for="starring" class="form-label" style="color: white;">Venue</label>
+        <input class="form-control" type="text" placeholder="{{ show.venue }}" aria-label="{{ show.venue }}" disabled>
+      </div>
+
+      <div class="mb-3">
+          <label for="production_house" class="form-label" style="color: white;">Cost per seat</label>
+          <input class="form-control" type="text" placeholder="{{ show.cost_per_seat }}" aria-label="{{ show.cost_per_seat }}" disabled>
+      </div>
+  
+      <div class="mb-3">
+          <label for="production_house" class="form-label" style="color: white;">Available Seats</label>
+          <input class="form-control" type="text" placeholder="{{ show.seats_available }}" aria-label="{{ show.seats_available }}" disabled>
+      </div>
+  
+      <div class="mb-3">
+          <label for="no_of_seats" class="form-label" style="color: white;">Select No of seats</label>
+          <input type="Number" class="form-control" min="1" max="{{ show.seats_available }}" placeholder="Enter the number of seats" name="no_of_seats">
+      </div>
+
+      <button type="submit" class="btn btn-primary ">Book</button>
+
+  </form>
+  </div>
+  {% endblock %}
+</body>
+
+
+
+

@@ -1,0 +1,70 @@
+<body>
+  {% extends "base.html" %} 
+  {% block title %} 
+  My Venues
+  {% endblock %}
+  {% block content %}
+
+
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="container-fluid pt-4 ps-5">
+          <div class="row">
+              <div class="col-10">
+                  <h5 class="fw-bold" style="color: white;">My Venues</h5>
+              </div>
+              <div class="col-2"><a href="/add_venues" class="btn btn-primary">Add Venues</a></div>
+          </div>
+      </div>
+      <div class="container-fluid align-self-center" style="width: 100%;">
+          <ol class="list-group-fluid list-group-numbered align-middle pt-4" style="width:500px;align-content:center">
+              {% for venue in user.venues %}
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold"><a href="/venue/{{ venue.id }}" class="link-dark">{{ venue.name }}</a></div>
+                    {{ venue.address }}, {{ venue.city }}
+                  </div>
+                  <a href="/update_venues/{{ venue.id }}" style='margin-right:16px' class="card-link">Update</a>
+                  <a href="/delete_venues/{{ venue.id }}" style='margin-right:16px' class="card-link">Delete</a>
+                </li>
+              {% endfor %}
+            </ol>
+      </div>
+      </div>
+      <div class="col">
+        <div class="container-fluid pt-4 ps-5">
+          <div class="row">
+              <div class="col-10">
+                  <h5 class="fw-bold" style="color: white;">My Shows</h5>
+              </div>
+              <div class="col-2"><a href="/add_shows" class="btn btn-primary">Add Shows</a></div>
+          </div>
+      </div>
+      <div class="container-fluid align-self-center" style="width: 100%;">
+          <ol class="list-group-fluid list-group-numbered align-middle pt-4" style="width:500px;align-content:center">
+              {% for show in user.shows %}
+              
+              <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold"><a href="/show_tickets/{{ show.id }}" class="link-dark">{{ show.movie }}</a></div>
+                      {{ show.venue }}, {{ show.datetime_screened }}
+                  </div>
+                  <span class="badge bg-primary rounded-pill" style='margin-right:16px'>{{show.seats_available}}</span>
+                  <a href="/update_shows/{{ show.id }}" style='margin-right:16px' class="card-link">Update</a>
+                  <a href="/delete_shows/{{ show.id }}" style='margin-right:16px' class="card-link">Delete</a>
+                </li>
+              {% endfor %}
+            </ol>
+      </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+
+
+
+

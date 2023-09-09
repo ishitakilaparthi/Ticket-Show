@@ -1,0 +1,46 @@
+<body>
+  {% extends "base.html" %} 
+  {% block title %} 
+  Select Venues 
+  {% endblock %}
+  {% block content %}
+
+
+
+  <div class="container">
+      <div class="col">
+        <h1 style="color: white; padding-top:2%;"><div class="fw-bold">{{ movie.title }}</div></h1>
+      </div>
+      <hr/>
+      <p style="color: white;"><strong >Book your show</strong></p> 
+        <div class="container pt-4 pb-4">
+            <div class="row row-cols-auto">
+            {% for show in shows %} 
+            <div class="card" style="margin: 15px;">
+              <div class="card-body">
+                {% if user.is_authenticated %}
+                  {% if user.is_admin==false%}
+                  <h5 class="card-title"><div class="fw-bold"><a href="/venue/{{ show.venue_screened_in }}" class="link-dark">{{ show.venue }}</a></div></h5>
+                    <h6 class="card-title"><div class="fw-bold"><a href="/book_tickets/{{ show.id }}">Book tickets</a></div></h6>
+                  {% else %}
+                    <h5 class="card-title"><div class="fw-bold">{{ show.venue }}</div></h5>
+                  {% endif %}
+                {% else %}
+                  <h5 class="card-title"><div class="fw-bold"><a href="/book_tickets/{{ show.id }}" class="link-dark">{{ show.venue }}</a></div></h5>
+                {% endif %}
+                <p class="card-text"><a href="{{ show.venue_address_link }}" class="link-dark" target="_blank">{{ show.venue_address }}</a></p>
+                <p class="card-text">{{ show.datetime_screened }}</p>
+                <hr/>
+                Cost <div class="fw-bold">{{ show.cost_per_seat }} Rs</div>
+              </div> 
+            </div>
+          {% endfor %}
+      </div>
+      </div>
+  </div>
+  {% endblock %}
+</body>
+
+
+
+

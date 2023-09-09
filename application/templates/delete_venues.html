@@ -1,0 +1,53 @@
+<body>
+    {% extends "base.html" %} 
+    {% block title %} 
+    Delete Venue
+    {% endblock %}
+    {% block content %}
+  
+  
+  
+    <h3 style="color: white;display:flex; justify-content:center; align-items:center; padding-top:5%; font-weight:700">Delete Venue</h3>
+    <div class="form" style="display:flex; justify-content:center; align-items:center; padding-top:10px">
+    <form method = "POST">
+
+        <div class="mb-3">
+          <label for="name" class="form-label" style="color: white;">Name</label>
+          <input type="Text" class="form-control" placeholder="Name of your venue" name="name">
+        </div>
+
+        <div class="mb-3">
+          <label for="address" class="form-label" style="color: white;">Address</label>
+          <input type="Text" class="form-control" placeholder="Enter address" name="address">
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label" style="color: white;">Location</label>
+            <input type="Text" class="form-control" placeholder="Location link" name="location">
+        </div>
+
+        <div class="mb-3">
+            <label for="city" class="form-label" style="color: white;">City</label>
+            <input type="Text" class="form-control" placeholder="City" name="city">
+        </div>
+
+        <div class="mb-3">
+            <label for="contact_no" class="form-label" style="color: white;">Contact Number</label>
+            <input type="number" class="form-control" placeholder="10 digit contact number" name="contact_no" minlength="10" maxlength="10">
+        </div>
+
+        <div class="mb-3">
+          <label for="poster" class="form-label" style="color: white;">Photo</label>
+          <input type="file" class="form-control" accept="image/*" placeholder="Upload Image" name="photo">
+        </div>
+
+        <a href="/deleteconfirm"></a><button type="submit" class="btn btn-primary">Delete</button>
+
+    </form>
+    </div>
+    {% endblock %}
+</body>
+
+
+
+
