@@ -1,0 +1,52 @@
+<body>
+    {% extends "base.html" %} 
+    {% block title %} 
+    Update Show 
+    {% endblock %}
+    {% block content %}
+
+  
+  
+  
+  
+  
+    <h3 style="color: white;display: flex; justify-content: center;align-items: center;padding-top:5%; font-weight:700">Update Show</h3>
+      <div class="form" style="display: flex; justify-content: center;align-items: center;padding-top:10px">
+        <form method = "POST" enctype="multipart/form-data">
+
+          <div class="mb-3">
+            <label for="movie" class="form-label" style="color: white;">Movie</label>
+            <input type="number" class="form-control" placeholder="{{ show.movie }}" name="movie" value= "{{ show.movie }}" disabled>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="venues" class="form-label" style="color: white;">Venue</label>
+            <input type="number" class="form-control" placeholder="{{ show.venue }}" name="movie" value= "{{ show.venue }}" disabled>
+          </div>
+
+    
+            <div class="mb-3">
+                <label for="seats_available" class="form-label" style="color: white;">No. of seats</label>
+                <input type="number" class="form-control" placeholder="Enter the total number of seats" name="seats_available" value= "{{ show.seats_available }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="production_house" class="form-label" style="color: white;">Cost per seat</label>
+                <input type="number" class="form-control" placeholder="Enter the cost per seat" name="cost_per_seat" value= "{{ show.cost_per_seat }}">
+            </div>
+
+            <div class="mb-3">
+                <label for="poster" class="form-label" style="color: white;">Select date and time</label>
+                <input type="datetime-local" class="form-control" name="datetime_screened" value= "{{ show.datetime_screened }}">
+            </div>
+
+            <button type="submit" class="btn btn-primary ">Update</button>
+        </form>
+      </div>
+  {% endblock %}
+</body>
+
+
+
+

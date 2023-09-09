@@ -1,0 +1,38 @@
+<body>
+  {% extends "base.html" %} 
+  {% block title %} 
+  My Tickets 
+  {% endblock %}
+  {% block content %}
+
+
+
+  <div class="container-fluid align-self-center">
+      <br/><p style="color: white;"><strong >My Tickets</strong></p> <hr/>
+      <div class="container pt-4 pb-4">
+          <div class="row row-cols-auto">
+          {% for ticket in user.tickets_booked %}
+          <div class="card" style="margin-right:24px;margin-bottom: 20px;">
+              <div class="card-body">
+                <p class="card-text">ID <strong>{{ ticket.id }}</strong></p>
+                <h5 class="card-title"><div class="fw-bold">{{ ticket.movie_name }}</div></h5>
+                <p class="card-text"><a href="/venue/{{ ticket.venue_booked }}">{{ ticket.venue_name }}</a></p>
+                <p class="card-text"><a href="{{ ticket.venue_address_link }}">{{ ticket.venue_address }}</a></p>
+                <p class="card-text">{{ ticket.show_timing }}</p>
+                <hr/>
+                <p class="card-text">No. seats <strong>{{ ticket.no_of_seats }}</strong></p>
+                <hr/>
+                Total Cost <div class="fw-bold">{{ ticket.total_cost}} Rs</div>
+                <a href="/rating/{{ ticket.movie_booked }}">Rate</a>
+              </div>
+          </div>
+          {% endfor %}
+          </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</body>
+
+
+

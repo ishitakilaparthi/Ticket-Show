@@ -1,0 +1,32 @@
+<body>
+    {% extends "base.html" %} 
+    {% block title %} 
+    Add Movies 
+    {% endblock %}
+    {% block content %}
+  
+  
+  
+  
+    <div class="container d-flex justify-content-center" style="height: 100vh;">
+      <div class="row">
+        <div class="col-md-12 mt-5">
+          <h3 style="color: white;display:flex; justify-content:center; align-items:center; padding-top:5%; font-weight:700">Rate the movie</h3>
+          <hr>
+          <form method="POST">
+            <select class="form-select" aria-label="Rate" name="rating" style="width: 80px;">
+              <option value="1">1</option> 
+              <option value="2">2</option> 
+              <option value="3">3</option> 
+              <option value="4">4</option> 
+              <option value="5">5</option> 
+            </select>
+            <hr>
+            <button type="submit" class="btn btn-primary">Rate</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+{% endblock %}
+</body>

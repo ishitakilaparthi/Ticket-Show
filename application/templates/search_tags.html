@@ -1,0 +1,52 @@
+<body>
+    {% extends "base.html" %}
+    {% block title %}
+    Search
+    {% endblock %}
+    {% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" style="font-size: 30; font-weight:1000; font-family: 'Poppins', sans-serif;color:rgb(255, 255, 255)" href="#">TicketShow</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse d-md-flex justify-content-md-end" id="navbarNavDropdown">
+            <ul class="navbar-nav navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link active" style="font-size: 20" aria-current="page" href="/">Home</a>
+              </li>
+            </ul>
+        </div>
+        </div>
+        </nav>  
+    <div class="container pt-4 pb-4">
+        <form method="get" action="/search" class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" value="{{ query }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        {% if movies %}
+            <h5 style="color: white;">Search results for "{{ query }}"</h5>
+            <div class="row row-cols-auto">
+                {% for movie in movies %}
+                    <div class="col" style="padding-top: 25px;">
+                        <div class="card" style="width: 15rem; vertical-align:middle;">
+                            <div class="text-center">
+                                <img src="/static/movie_posters/{{ movie.poster }}" class="card-img-top">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="/select_venues/{{ movie.id }}" class="link-dark">{{ movie.title }}</a></h5>
+                                <p class="card-text">{{ movie.starring }}</p>
+                                <p class="card-text"><strong>Tags</strong> - {{ movie.tags }}</p>
+                                <p class="card-text"><strong>Rating</strong> - {{ movie.avg_rating}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p style="color: white;">No movies found for "{{ query }}"</p>
+        {% endif %}
+    </div>
+    {% endblock %}
+</body>
+    
