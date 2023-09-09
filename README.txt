@@ -1,9 +1,3 @@
-run these commands to activate the virtual environment
-	cd Ticket-Show
-	cd myenv
-	cd Scripts\activate
-	cd ..
-
 make sure that your system has python and sqlite3 installed
 
 run these commands on the command line to install the required extensions:
